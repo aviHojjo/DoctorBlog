@@ -15,6 +15,7 @@ import { PeopleDetailComponent } from './people-detail/people-detail.component';
 import { TvDetailComponent } from './tv-detail/tv-detail.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
+    MatCardModule,
     MDBBootstrapModule.forRoot(),
     BrowserAnimationsModule
   ],

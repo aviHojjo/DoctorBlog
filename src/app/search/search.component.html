@@ -12,11 +12,11 @@
     />
     <!-- Search results -->
     <ul class="search-result pl-0 w-100">
-      <li
+      <!-- <li
         class="hide-item list-group-item p-1"
         *ngFor="let result of (query$ | async).results | slice: 0:15"
       >
-        <!-- If it's a movie -->
+        <!-- If it's a movie 
         <div *ngIf="result.media_type == 'movie'">
           <i class="fas fa-film fa-fw"></i>
           <a
@@ -32,9 +32,9 @@
             </span>
           </a>
         </div>
-
+-->
         <!-- If it's a tv show -->
-        <div *ngIf="result.media_type == 'tv'">
+      <!-- <div *ngIf="result.media_type == 'tv'">
           <i class="fas fa-tv fa-fw"></i>
           <a
             (click)="getDetails('tv', result.id)"
@@ -48,9 +48,9 @@
             </span>
           </a>
         </div>
-
+      -->
         <!-- If it's a person -->
-        <div *ngIf="result.media_type == 'person'">
+       <!-- <div *ngIf="result.media_type == 'person'">
           <i class="far fa-user fa-fw"></i>
           <a
             (click)="getDetails('person', result.id)"
@@ -65,7 +65,7 @@
             </span>
           </a>
         </div>
-      </li>
+      </li> -->
     </ul>
   </form>
 </div>
