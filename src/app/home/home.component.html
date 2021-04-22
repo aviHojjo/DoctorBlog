@@ -1,0 +1,51 @@
+<h1 class="title text-center h1-responsive">Your Last Movie Database</h1>
+<div *ngIf="latest">
+  <div class="container">
+    <h2 class="h2 heading">
+      Upcoming movies
+    </h2>
+
+    <div class="row">
+      <!-- Loop Popular movies, limit result with slice -->
+      <div
+        class="col-6 col-md-6 col-lg-6 my-3 px-2 px-md-4"
+        *ngFor="let item of latest"
+      >
+        <div *ngIf="item.user !== null; else noPic" >
+            Name: {{item.user.authorName}} <br>
+            <!-- background pic
+            <img
+                class="poster-img hoverable"
+                src="{{item.attachments[0].url}}"
+                title="{{ item.title }}"
+                alt="{{ item.title }}"
+               
+              /> -->
+          <a class="view overlay zoom">
+          
+              person pic
+            <img
+              class="poster-img hoverable"
+              src="{{item.user.thumbnailUrl}}"
+              title="{{ item.title }}"
+              alt="{{ item.title }}"
+             
+            />
+          </a>
+       
+        </div>
+
+        <ng-template #noPic>
+          <a class="view overlay zoom" routerLink="/movie/{{ item.id }}">
+            <div
+              class="hoverable mb-3 img-placeholder row align-content-center justify-content-center flex-row"
+            >
+              <i class="far fa-image mb-3 col-12"></i>
+              <h5 class="missing-img-title col h5 heading">{{ item.title }}</h5>
+            </div>
+          </a>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
