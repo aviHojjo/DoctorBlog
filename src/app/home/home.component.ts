@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   orignalTher=[];
   filteredTher=[];
   isChecked=false;
+  checkedArray =[];
 
   constructor(
     private apiService: ApiService,
@@ -23,9 +24,53 @@ export class HomeComponent implements OnInit {
     this.getLatest();
   }
 
-  checkValue(event: any,val){
-    console.log(event);
+  checkValue(checkedValue,val){
+    // console.log(event);
+    // checkedArray
     console.log("value ==>",val);
+    if(!checkedValue){
+      const index = this.checkedArray.indexOf(val);
+      if (index > -1) {
+        this.checkedArray.splice(index, 1);
+      }
+      
+      // array = [2, 9]
+      console.log(this.checkedArray); 
+    }
+    else{
+      this.checkedArray.push(val);
+    }
+    console.log("checked Array",this.checkedArray); 
+ }
+ shouldDisplay(item){
+   debugger
+if( this.checkedArray.length){
+  let x=true;
+   item.map((it)=>{
+    if(this.checkedArray.indexOf(it)){
+      const index = this.checkedArray.indexOf(it.name);
+      if(index===0){
+        x=false;
+        return true;
+      
+      }
+      // else{
+      //   return false;
+      // }
+     
+        }
+        if(x===true){
+          return false;
+        }
+   })
+  }
+  else{
+    return true;
+  }
+  //  return true;
+ 
+ 
+
  }
   getLatest(): void {
 
