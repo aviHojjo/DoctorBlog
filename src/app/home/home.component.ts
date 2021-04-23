@@ -43,35 +43,37 @@ export class HomeComponent implements OnInit {
     console.log("checked Array",this.checkedArray); 
  }
  shouldDisplay(item){
-   debugger
-if( this.checkedArray.length){
-  let x=true;
-   item.map((it)=>{
-    if(this.checkedArray.indexOf(it)){
-      const index = this.checkedArray.indexOf(it.name);
-      if(index===0){
-        x=false;
-        return true;
-      
-      }
-      // else{
-      //   return false;
-      // }
-     
+   
+  if( this.checkedArray.length){
+    let x=true;
+     item.map((it)=>{
+      if(this.checkedArray.indexOf(it)){
+        const index = this.checkedArray.indexOf(it.name);
+        if(index===0){
+          x=false;
+        
         }
-        if(x===true){
-          return false;
-        }
-   })
-  }
-  else{
-    return true;
-  }
-  //  return true;
- 
- 
-
- }
+        // else{
+        //   return false;
+        // }
+       
+          }
+        
+     })
+     if(x===true){
+      return false;
+    }
+    else{
+      return true;
+    }
+    }
+    else{
+      return true;
+    }
+    //  return true;
+   
+ } 
+  
   getLatest(): void {
 
     this.apiService.getLatestReleases()
