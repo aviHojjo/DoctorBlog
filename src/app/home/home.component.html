@@ -44,8 +44,9 @@
     width: 30%;">
       <div>
         <b>Speciality</b>
+        <br>
 <span *ngFor="let ther of orignalTher">
-       <input type='checkbox' name="color"  (change)="checkValue($event.target.checked,ther)" /> <label> {{ther}} </label>
+  <label>  <input type='checkbox' name="color"  (change)="checkValue($event.target.checked,ther)" />  {{ther}} </label>
       </span>
       </div>      
     </div>
