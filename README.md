@@ -4,7 +4,7 @@
 
 - Get your own API key from [The Movie Database](https://www.themoviedb.org/documentation/api)
 - Clone or fork the repo
-  - `git clone https://github.com/andreasnyh/u07-angular-movie-app.git`
+  - `git clone https://github.com/andreasnyh/doctorApp.git`
 - Install all the dependencies
   - `npm install`
 - Find this file `src\app\api-service.ts`

@@ -7,7 +7,7 @@ import { Router, ActivatedRoute, Event, NavigationStart, NavigationEnd, Navigati
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Doctor App';
+  title = 'doctorApp';
   temp_url: string;
 
   constructor(
