@@ -8,7 +8,7 @@ import { ApiService } from '../api.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  fetched=false;
   latest: any;
   orignalTher = [];
   filteredTher = [];
@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
     else {
       this.checkedArray.push(val);
     }
-    console.log("checked Array", this.checkedArray);
+  
   }
   shouldDisplay(item) {
 
@@ -72,6 +72,7 @@ export class HomeComponent implements OnInit {
 
     this.apiService.getLatestData()
       .subscribe((latest) => {
+        if(!this.fetched){
 
         this.latest = latest;
         this.latest.map((lat) => {
@@ -79,7 +80,8 @@ export class HomeComponent implements OnInit {
             this.orignalTher.push(ther.name)
           })
         });
-
+        this.fetched=true;
+      }
       });
 
   }

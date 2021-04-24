@@ -12,7 +12,7 @@
         *ngFor="let item of latest" >
         
       
-        <div *ngIf="item.user !== null; else noPic" >
+        <div *ngIf="item.user !== null" >
           <span *ngIf="shouldDisplay(item.therapeutics)">
             Name: {{item.user.authorName}} <br>
           <mat-card class="example-card">
@@ -21,7 +21,7 @@
               <mat-card-title>{{item.user.authorName}}</mat-card-title>
               <mat-card-subtitle>{{item.user.designation}}</mat-card-subtitle>
             </mat-card-header>
-            <img *ngIf="item.attachments[0]" mat-card-image src="{{ item.attachments[0].url}}" alt="Photo of a Shiba Inu">
+            <img *ngIf="item.attachments[0]" mat-card-image src="{{ item.attachments[0].url}}" alt="Photo of a doctor">
             
             <div mat-card-avatar class="example-header-image" [ngStyle]="{'background-image': 'url(' + item.user.thumbnailUrl + ')'}"></div><p>{{item.user.authorName}}</p>
             <mat-card-content>
@@ -36,17 +36,6 @@
           </mat-card>
        </span>
         </div>
-
-        <ng-template #noPic>
-          <a class="view overlay zoom" routerLink="/movie/{{ item.id }}">
-            <div
-              class="hoverable mb-3 img-placeholder row align-content-center justify-content-center flex-row"
-            >
-              <i class="far fa-image mb-3 col-12"></i>
-              <h5 class="missing-img-title col h5 heading">{{ item.title }}</h5>
-            </div>
-          </a>
-        </ng-template>
       </div>
     </div>
     </div>
